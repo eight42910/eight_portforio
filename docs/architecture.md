@@ -166,7 +166,7 @@ export type Episode = {
 
 ## 13. デプロイ/運用
 
-- Vercel で自動デプロイ（`develop` は Preview、`main` は Production）
+- Vercel で自動デプロイ（`main` への push は Production、任意ブランチ/PR は Preview）
 - 環境変数は Vercel 管理。ローカルは `.env.local`
 
 ## 14. CMS 設計（microCMS）
@@ -193,8 +193,8 @@ export type Episode = {
 
 ## 17. 開発フロー（個人開発向け）
 
-- Git 運用: `feature/*` → `develop` → `main`。`main` 直 PR/Merge 禁止
-- コミット: Conventional Commits（小さく高頻度）。1PR ≦ 300 行目安
+- Git 運用: トランクベース。小規模変更は `main` に直接、リスクが高い変更のみ `feature/*` を使用
+- コミット: Conventional Commits（小さく高頻度）。1PR ≦ 300 行目安（Squash merge を基本）
 - 柔軟性: 小粒 PR、レビューは自己チェックリスト（A11y/SEO/Perf/Docs）で代替
 
 ## 18. 実装優先度（P1 高 ↔ P3 低）

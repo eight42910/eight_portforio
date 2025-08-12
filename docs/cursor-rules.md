@@ -4,8 +4,8 @@
 
 ## 1. ブランチ/PR 運用
 
-- ブランチ戦略: `feature/*` → `develop` → `main`
-- `main` 直 PR/Merge は禁止。`develop` に集約し、安定後 `main` へ
+- ブランチ戦略: トランクベース（`main` を唯一のトランク）。大きい/リスクの高い変更時のみ `feature/*`
+- PR: 自己レビュー用途。原則 `main` 宛て。マージは Squash and merge を推奨
 - 1 PR ≦ 300 行目安。差分が大きい場合は分割
 
 ## 2. コミット規約
@@ -27,13 +27,13 @@
 ## 4. 毎回の遵守フロー（チェックリスト）
 
 1. 仕様確認: `docs/architecture.md`, `docs/technical-specs.md`, `docs/design-spec.md`
-2. 作業ブランチ作成: `git switch -c feature/<topic>`
+2. 必要に応じて作業ブランチ作成: `git switch -c feature/<topic>`
 3. 実装: RSC 優先、UI 状態のみ Client。コンテンツは MDX/JSON or microCMS
 4. 静的解析: `npm run lint` / `npm run typecheck` / `npm run build`
 5. ドキュメント更新: 変更に応じて `docs/*` を追記（変更点/理由/影響）
 6. 自己レビュー: 上記レビュー観点をセルフチェック
-7. PR 作成（宛先: `develop`）: 目的/変更点/スクショ or 動画/動作確認/影響/既知課題
-8. マージ: `develop` に squash merge（履歴を綺麗に）。リリース時に `main` へ
+7. PR 作成（宛先: `main`）: 目的/変更点/スクショ or 動画/動作確認/影響/既知課題
+8. マージ: `main` に squash merge（履歴を綺麗に）。不要になったブランチは削除
 
 ## 5. 定義の明確化
 
